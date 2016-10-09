@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="@string/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:id="@+id/textView"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="17dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:id="@+id/editText"/>
+
+    <Button
+        android:text="@string/button"
+        android:layout_below="@id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/ok"/>
+
+    <Button
+        android:text="@string/button1"
+        android:layout_below="@id/editText"
+        android:layout_toStartOf="@id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cncl"/>
+
+    <Button
+        android:text="@string/button2"
+        android:layout_below="@id/editText"
+        android:layout_toStartOf="@id/cncl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn3"
+        android:onClick="clickNewBtn"/>
+
+
+</RelativeLayout>
