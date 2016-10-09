@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button cncl;
-    Button Ok;
+    Button btnCancel;
+    Button btnOk;
     TextView textView;
     EditText editText;
 
@@ -19,13 +19,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mysource);
+        btnCancel = (Button) findViewById(R.id.cncl);
 
-        cncl = (Button) findViewById(R.id.cncl);
-        Ok = (Button) findViewById(R.id.ok);
+        btnOk = (Button) findViewById(R.id.ok);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
 
-        Ok.setOnClickListener(new View.OnClickListener() {
+        btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 textView.setText(editText.getText().toString());
@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        cncl.setText("отменить");
-        cncl.setOnClickListener(this);
+        btnCancel.setText("отменить");
+        btnCancel.setOnClickListener(this);
     }
 public void clickNewBtn (View View) {
     Intent intent = new Intent(MainActivity.this, NewActivity.class);
