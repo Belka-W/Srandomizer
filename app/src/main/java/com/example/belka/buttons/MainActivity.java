@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCancel.setOnClickListener(this);
     }
 public void clickNewBtn (View View) {
-    Intent intent = new Intent(MainActivity.this, NewActivity.class);
+    Intent intent = new Intent(MainActivity.this, Randomizer.class);
     startActivity(intent);
 }
     @Override

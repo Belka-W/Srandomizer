@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewActivity"
+        <activity android:name=".Randomizer"
             android:label="@string/about_title_New"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">

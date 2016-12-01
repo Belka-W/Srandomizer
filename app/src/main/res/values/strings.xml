@@ -11,6 +11,7 @@
     <string name="about_title_New">2страница</string>
     <string name="about_title_Second">3страница</string>
 
-
+    <string name="tw">Добавьте свой вариант ответа</string>
+    <string name="addMatch">Добавить</string>
 
 </resources>
