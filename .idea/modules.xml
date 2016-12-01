@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appvisorlib.belka/appvisorlib.belka.iml" filepath="$PROJECT_DIR$/appvisorlib.belka/appvisorlib.belka.iml" />
       <module fileurl="file://$PROJECT_DIR$/buttons.iml" filepath="$PROJECT_DIR$/buttons.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylibrary/mylibrary.iml" filepath="$PROJECT_DIR$/mylibrary/mylibrary.iml" />
     </modules>
