@@ -8,12 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.appvisorlib.AppVisor;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnCancel;
     Button btnOk;
     TextView textView;
     EditText editText;
+
+    AppVisor appVisor = new AppVisor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
+
+        appVisor.connectDB("http://192.168.43.31:9000");
 
         btnCancel.setText("отменить");
         btnCancel.setOnClickListener(this);
