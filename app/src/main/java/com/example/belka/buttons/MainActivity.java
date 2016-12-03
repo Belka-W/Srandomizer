@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        appVisor.connectDB("http://192.168.43.31:9000");
 
         btnCancel.setText("отменить");
         btnCancel.setOnClickListener(this);
@@ -52,6 +51,7 @@ public void clickNewBtn (View View) {
 
         textView.setText(R.string.textview);
         editText.getText().clear();
+        appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
 
     }
 }
