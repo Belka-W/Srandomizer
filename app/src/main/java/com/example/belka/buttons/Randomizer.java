@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.appvisorlib.AppVisor;
+
 import java.util.ArrayList;
 
 import static com.example.belka.buttons.R.layout.activity_randomizer;
@@ -14,7 +16,7 @@ import static com.example.belka.buttons.R.layout.activity_randomizer;
 
 
 public class Randomizer extends Activity  {
-
+    AppVisor appVisor = new AppVisor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,8 @@ public class Randomizer extends Activity  {
                     countWorld.setText(""+varMatch.getCountMatch());
                 }
                 System.out.println("Debug: " + newMatch.getText().toString());
+                //Логирование
+                appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
             }
         });
 

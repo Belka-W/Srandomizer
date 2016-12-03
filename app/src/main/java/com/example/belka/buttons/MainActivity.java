@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 textView.setText(editText.getText().toString());
                 editText.getText().clear();
-
+                //Логирование. Передаем имя кнопки через ресурсы по ID
+                appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
             }
         });
 
@@ -45,12 +46,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 public void clickNewBtn (View View) {
     Intent intent = new Intent(MainActivity.this, Randomizer.class);
     startActivity(intent);
+    //Логирование. Передаем имя кнопки через ресурсы по ID
+    //appVisor.saveBtnAction(View.getResources().getResourceName(View.getId()));
+
 }
     @Override
     public void onClick(View v) {
 
         textView.setText(R.string.textview);
         editText.getText().clear();
+        //Логирование. Передаем имя кнопки через ресурсы по ID
         appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
 
     }
