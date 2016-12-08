@@ -6,9 +6,9 @@ package com.example.appvisorlib;
 
 public interface IAppVisor {
 
-    public void saveScreen();
-    public void saveBtnAction(String name);
-    public void saveScreenAction();
+
+    public void saveControlClick (String controlId);
+
     public void connectDB(String url);
 
 }

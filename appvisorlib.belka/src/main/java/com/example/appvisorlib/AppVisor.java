@@ -6,7 +6,6 @@ import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
@@ -19,33 +18,25 @@ import java.util.Calendar;
 /**
  * Created by belka-w on 02.12.16.
  */
-
+//Либа
 public class AppVisor  implements IAppVisor{
-    @Override
-    public void saveScreen() {
 
+
+    public void saveControlClick(String controlId) {
+        new SaveControlClick(controlId).execute();
     }
 
-    @Override
-    public void saveBtnAction(String name) {
-        new SaveBtnAction(name).execute();
-    }
-
-    @Override
-    public void saveScreenAction() {
-
-    }
 
     @Override
     public void connectDB(String url) {
-       new ConnectToDB(url).execute();
+       new ConnectToDataBase(url).execute();
     }
 
 
-    class ConnectToDB extends AsyncTask<String, Void, String>{
+    class ConnectToDataBase extends AsyncTask<String, Void, String>{
         private String url = null;
 
-        ConnectToDB(String url){
+        ConnectToDataBase(String url){
             this.url = url;
         }
 
@@ -70,13 +61,13 @@ public class AppVisor  implements IAppVisor{
         }
     }
 
-    class SaveBtnAction extends AsyncTask<String, Void, String>{
-        private String nameBtn = null;
+    class SaveControlClick extends AsyncTask<String, Void, String>{
+        private String controlId = null;
         private String time = null;
 
-        SaveBtnAction(String nameBtn){
-            this.nameBtn = nameBtn;
-            DateFormat df = new SimpleDateFormat("HH:mm:ss");
+        SaveControlClick(String controlId){
+            this.controlId = controlId;
+            DateFormat df = new SimpleDateFormat("yyyy%20dd%20MM%20HH:mm:ss");
             time = df.format(Calendar.getInstance().getTime());
         }
 
@@ -88,7 +79,8 @@ public class AppVisor  implements IAppVisor{
         @Override
         protected String doInBackground(String... strings) {
             HttpClient client = HttpClientBuilder.create().build();
-            HttpPost post = new HttpPost("http://192.168.1.149:8123/?query=INSERT%20INTO%20login_btn%20VALUES%20('"+time+"','"+nameBtn+"')");
+            HttpPost post = new HttpPost("http://192.168.43.125:8123/?query=INSERT%20INTO%20ControlClick%20VALUES%20('"+time+"','"+ controlId +"','null')");
+//            HttpPost post = new HttpPost("http://192.168.43.125:8123/?query=INSERT%20INTO%20ControlClick%20VALUES%20('2016%2005%2012%2020:07:56','com.example.belka.buttons:id/cncl','')");
 
             try {
                 HttpResponse response = client.execute(post);

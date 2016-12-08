@@ -16,6 +16,7 @@ import static com.example.belka.buttons.R.layout.activity_randomizer;
 
 
 public class Randomizer extends Activity  {
+    //Подключение визора
     AppVisor appVisor = new AppVisor();
 
     @Override
@@ -37,6 +38,7 @@ public class Randomizer extends Activity  {
             @Override
             public void onClick(View v) {
                 viewMatch.setText(varMatch.getRandomMatch());
+                appVisor.saveControlClick(v.getResources().getResourceName(v.getId()));
             }
         });
 
@@ -44,18 +46,25 @@ public class Randomizer extends Activity  {
             @Override
             public void onClick(View v) {
 
-                if (newMatch.getText().toString() != " ") {
+                if ((!newMatch.getText().toString().equals("")) &&(!newMatch.getText().toString().equals(" "))) {
                     varMatch.addMatch(newMatch.getText().toString());
                     newMatch.setText("");
                     countWorld.setText(""+varMatch.getCountMatch());
                 }
-                System.out.println("Debug: " + newMatch.getText().toString());
                 //Логирование
-                appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
+                appVisor.saveControlClick(v.getResources().getResourceName(v.getId()));
             }
         });
 
+
+
     }
+
+    public void onMyViewClick(View view)
+    {
+        appVisor.saveControlClick(view.getResources().getResourceName(view.getId()));
+    }
+
 
     public static class MatchVar {
 
@@ -65,7 +74,7 @@ public class Randomizer extends Activity  {
             listMatch.add("Да");
             listMatch.add("Нет");
             listMatch.add("Подумай");
-            listMatch.add("Настюша бебебешечка");
+            listMatch.add("Уже лучше");
         }
 
         public int getCountMatch(){

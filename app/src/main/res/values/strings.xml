@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">buttons</string>
     <string name="textview">Печатай здесь</string>
+    <string name="textAnswer">Задай вопрос</string>
     <string name="textNew">Привет!\n это новый экран</string>
     <string name="button">OK</string>
     <string name="button1">Cancel</string>
-    <string name="button2">Нечто новое</string>
+    <string name="button2">Рандомайзер</string>
     <string name="BtnP3N1">2 странца</string>
     <string name="BtnP3N2">1 страница</string>
     <string name="Btn">3 страница</string>

@@ -26,7 +26,8 @@
         android:layout_marginBottom="20dp"
         android:layout_above="@+id/addMatch"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="onMyViewClick"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -37,17 +38,18 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/addMatch"
-        android:layout_toStartOf="@+id/addMatch" />
+        android:layout_toStartOf="@+id/addMatch"
+        android:onClick="onMyViewClick"/>
 
     <TextView
-        android:text="TextView"
+        android:text="@string/textAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/viewMatch"
         android:textSize="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="152dp" />
+        android:layout_marginTop="152dp"/>
 
     <TextView
         android:text="TextView"
@@ -56,5 +58,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/countWorld" />
+        android:id="@+id/countWorld"
+        android:onClick="onMyViewClick"/>
 </RelativeLayout>

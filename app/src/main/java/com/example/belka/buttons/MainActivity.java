@@ -12,51 +12,52 @@ import com.example.appvisorlib.AppVisor;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btnCancel;
-    Button btnOk;
+    Button buttonCancel;
+    Button buttonOk;
+    Button buttonNewPage;
     TextView textView;
     EditText editText;
-
+    //Подключение визора
     AppVisor appVisor = new AppVisor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mysource);
-        btnCancel = (Button) findViewById(R.id.cncl);
 
-        btnOk = (Button) findViewById(R.id.ok);
-        textView = (TextView) findViewById(R.id.textView);
-        editText = (EditText) findViewById(R.id.editText);
+        buttonCancel = (Button) findViewById(R.id.cncl);
+        buttonOk = (Button) findViewById(R.id.ok);
+        buttonNewPage = (Button) findViewById (R.id.btn3);
 
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textView.setText(editText.getText().toString());
-                editText.getText().clear();
-                //Логирование. Передаем имя кнопки через ресурсы по ID
-                appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
-            }
-        });
+        textView = (TextView) findViewById(R.id.myText);
+        editText = (EditText) findViewById(R.id.mainEditText);
 
-
-        btnCancel.setText("отменить");
-        btnCancel.setOnClickListener(this);
+        buttonCancel.setOnClickListener(this);
+        buttonOk.setOnClickListener(this);
+        buttonNewPage.setOnClickListener(this);
     }
-public void clickNewBtn (View View) {
-    Intent intent = new Intent(MainActivity.this, Randomizer.class);
-    startActivity(intent);
-    //Логирование. Передаем имя кнопки через ресурсы по ID
-    //appVisor.saveBtnAction(View.getResources().getResourceName(View.getId()));
 
-}
     @Override
-    public void onClick(View v) {
+    public void onClick(View v){
+        switch (v.getId()) {
+            case R.id.btn3: Intent intent = new Intent(MainActivity.this, Randomizer.class);
+                startActivity(intent); break;
+            case R.id.ok: if ((!editText.getText().toString().equals(""))&&(!editText.getText().toString().equals(" "))){
+                textView.setText(editText.getText().toString());
+                editText.getText().clear();}break;
+            case R.id.cncl: textView.setText(R.string.textview);
+                editText.getText().clear(); break;
 
-        textView.setText(R.string.textview);
-        editText.getText().clear();
-        //Логирование. Передаем имя кнопки через ресурсы по ID
-        appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
+        }
 
+        appVisor.saveControlClick(v.getResources().getResourceName(v.getId()));
     }
+
+    public void onMyViewClick(View view)
+    {
+        appVisor.saveControlClick(view.getResources().getResourceName(view.getId()));
+    }
+
+
+
 }
