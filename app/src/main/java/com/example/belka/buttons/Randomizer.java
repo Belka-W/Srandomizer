@@ -2,6 +2,7 @@ package com.example.belka.buttons;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +17,7 @@ import static com.example.belka.buttons.R.layout.activity_randomizer;
 
 
 public class Randomizer extends Activity  {
-    AppVisor appVisor = new AppVisor();
+    //Подключение визора
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,8 @@ public class Randomizer extends Activity  {
             @Override
             public void onClick(View v) {
                 viewMatch.setText(varMatch.getRandomMatch());
+                MainActivity.appVisor.saveControlClick(v.getResources().getResourceName(v.getId()),
+                        v.getResources().getResourceName(((View) v.getParent()).getId()));
             }
         });
 
@@ -44,18 +47,27 @@ public class Randomizer extends Activity  {
             @Override
             public void onClick(View v) {
 
-                if (newMatch.getText().toString() != " ") {
+                if (!TextUtils.isEmpty(newMatch.getText().toString())) {
                     varMatch.addMatch(newMatch.getText().toString());
                     newMatch.setText("");
                     countWorld.setText(""+varMatch.getCountMatch());
                 }
-                System.out.println("Debug: " + newMatch.getText().toString());
                 //Логирование
-                appVisor.saveBtnAction(v.getResources().getResourceName(v.getId()));
+                MainActivity.appVisor.saveControlClick(v.getResources().getResourceName(v.getId()),
+                        v.getResources().getResourceName(((View) v.getParent()).getId()));
             }
         });
 
+
+
     }
+
+    public void onMyViewClick(View view)
+    {
+        MainActivity.appVisor.saveControlClick(view.getResources().getResourceName(view.getId()),
+                view.getResources().getResourceName(((View) view.getParent()).getId()));
+    }
+
 
     public static class MatchVar {
 
@@ -65,7 +77,7 @@ public class Randomizer extends Activity  {
             listMatch.add("Да");
             listMatch.add("Нет");
             listMatch.add("Подумай");
-            listMatch.add("Настюша бебебешечка");
+            listMatch.add("Уже лучше");
         }
 
         public int getCountMatch(){
