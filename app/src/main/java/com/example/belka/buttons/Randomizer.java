@@ -1,22 +1,20 @@
 package com.example.belka.buttons;
+
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.appvisorlib.AppVisor;
-
 import java.util.ArrayList;
 
 import static com.example.belka.buttons.R.layout.activity_randomizer;
 
 
-
-public class Randomizer extends Activity  {
+public class Randomizer extends Activity {
     //Подключение визора
 
     @Override
@@ -50,7 +48,7 @@ public class Randomizer extends Activity  {
                 if (!TextUtils.isEmpty(newMatch.getText().toString())) {
                     varMatch.addMatch(newMatch.getText().toString());
                     newMatch.setText("");
-                    countWorld.setText(""+varMatch.getCountMatch());
+                    countWorld.setText("" + varMatch.getCountMatch());
                 }
                 //Логирование
                 MainActivity.appVisor.saveControlClick(v.getResources().getResourceName(v.getId()),
@@ -59,11 +57,9 @@ public class Randomizer extends Activity  {
         });
 
 
-
     }
 
-    public void onMyViewClick(View view)
-    {
+    public void onMyViewClick(View view) {
         MainActivity.appVisor.saveControlClick(view.getResources().getResourceName(view.getId()),
                 view.getResources().getResourceName(((View) view.getParent()).getId()));
     }
@@ -73,27 +69,27 @@ public class Randomizer extends Activity  {
 
         private ArrayList<String> listMatch = new ArrayList();
 
-        public MatchVar(){
+        public MatchVar() {
             listMatch.add("Да");
             listMatch.add("Нет");
             listMatch.add("Подумай");
             listMatch.add("Уже лучше");
         }
 
-        public int getCountMatch(){
+        public int getCountMatch() {
             return this.listMatch.size();
         }
 
-        public void addMatch(String s){
+        public void addMatch(String s) {
             listMatch.add(s);
         }
 
-        public String getRandomMatch(){
-            return listMatch.get(((int) (Math.random()*listMatch.size())));
+        public String getRandomMatch() {
+            return listMatch.get(((int) (Math.random() * listMatch.size())));
         }
     }
 
-    public void clickBtn (View View) {
+    public void clickBtn(View View) {
         Intent intent4 = new Intent(Randomizer.this, ScndActivity.class);
         startActivity(intent4);
     }
