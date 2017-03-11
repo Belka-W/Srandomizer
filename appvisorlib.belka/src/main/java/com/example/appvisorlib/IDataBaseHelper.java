@@ -8,6 +8,6 @@ public interface IDataBaseHelper {
 
 //    public void saveMotions();
 
-    public void saveToDataBaseContrloAction(String date, String sessionId, String eventId,
+    public void saveToDataBaseContrloAction(String date,String dateAndTime, String sessionId, String eventId,
                                             String controlId, String viewId);
 }

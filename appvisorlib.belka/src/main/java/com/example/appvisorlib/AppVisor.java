@@ -32,9 +32,11 @@ public class AppVisor implements IAppVisor {
     public void saveControlClick(String controlId, String viewId) {
         if (dbHelper != null) {
             DateFormat df = new SimpleDateFormat("yyyy%20dd%20MM%20HH:mm:ss");
+            DateFormat dfDay = new SimpleDateFormat("yyyy%20dd%20MM");
             String time = df.format(Calendar.getInstance().getTime());
+            String day = dfDay.format(Calendar.getInstance().getTime());
             ++this.eventId;
-            dbHelper.saveToDataBaseContrloAction(time, sessionId, Integer.toString(eventId), controlId.split(":")[1], viewId.split(":")[1]);
+            dbHelper.saveToDataBaseContrloAction(day, time, sessionId, Integer.toString(eventId), controlId.split(":")[1], viewId.split(":")[1]);
         } else {
             Log.d(LOG_TAG, "!!!Нет связи с базой!!!");
         }

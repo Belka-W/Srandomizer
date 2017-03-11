@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="5336dc01078cc7a2fceac183fd10526cd6a3fd4d">
+        sha1="43700b2843cee9cef1586edb07f0f1a9479b8431">
         <dex dex="/home/belka-w/AndroidStudioProjects/buttons/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_759644e70fb5ac20ad789359fcfe02dda8dc653e/classes.dex" />
     </item>
     <item
@@ -97,7 +97,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.3"
-        sha1="4bf75ec7e81e6efce7b17f33a9db71cd969300f1">
+        sha1="d45561b9a15d04653f99399867522187274679ab">
         <dex dex="/home/belka-w/AndroidStudioProjects/buttons/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_4a0f3ffbbbe1d21d6c3c8fbf35f1e5f95d65ea51/classes.dex" />
     </item>
     <item
