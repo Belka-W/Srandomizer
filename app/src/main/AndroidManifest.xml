@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.belka.buttons">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewActivity"
+        <activity android:name=".Randomizer"
             android:label="@string/about_title_New"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme">
